@@ -1,39 +1,47 @@
 // 1.	Reverse an array using swapping.\
 
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
-// Function to reverse an array using swapping
-void reverseArray(int arr[], int start, int end) {
+void reverseArray(int arr[], int n) {
+    int start = 0;
+    int end = n - 1;
     while (start < end) {
-        // Swap elements at start and end indices
+        // Swap the elements
         int temp = arr[start];
         arr[start] = arr[end];
         arr[end] = temp;
-        // Move start index forward and end index backward
+        
+        // Move the pointers
         start++;
         end--;
     }
 }
 
-// Function to print an array
-void printArray(int arr[], int size) {
-    for (int i = 0; i < size; i++) {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
-}
-
 int main() {
-    int arr[] = {1, 2, 3, 4, 5};
-    int size = sizeof(arr) / sizeof(arr[0]);
+    int n;
 
-    printf("Original array: ");
-    printArray(arr, size);
+    // Input the size of the array
+    cout << "Enter the number of elements in the array: ";
+    cin >> n;
 
-    reverseArray(arr, 0, size - 1);
+    int arr[n];
 
-    printf("Reversed array: ");
-    printArray(arr, size);
+    // Input the elements of the array
+    cout << "Enter the elements of the array: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    // Reverse the array
+    reverseArray(arr, n);
+
+    // Output the reversed array
+    cout << "Reversed array: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
 
     return 0;
 }
+
