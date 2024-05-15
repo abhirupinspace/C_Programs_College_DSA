@@ -1,39 +1,55 @@
 #include <stdio.h>
 
-// Function to reverse an array
-void reverseArray(int arr[], int size) {
+// Function to reverse the array
+void reverseArray(int arr[], int n) {
     int start = 0;
-    int end = size - 1;
+    int end = n - 1;
     while (start < end) {
-        // Swap elements at start and end indices
+        // Swap the elements
         int temp = arr[start];
         arr[start] = arr[end];
         arr[end] = temp;
-        // Move start index forward and end index backward
+        
+        // Move the pointers
         start++;
         end--;
     }
 }
 
-// Function to print an array
-void printArray(int arr[], int size) {
-    for (int i = 0; i < size; i++) {
+// Function to take array input from the user
+void inputArray(int arr[], int n) {
+    printf("Enter the elements of the array: ");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+}
+
+// Function to print the array
+void printArray(int arr[], int n) {
+    for (int i = 0; i < n; i++) {
         printf("%d ", arr[i]);
     }
     printf("\n");
 }
 
 int main() {
-    int arr[] = {1, 2, 3, 4, 5};
-    int size = sizeof(arr) / sizeof(arr[0]);
+    int n;
 
-    printf("Original array: ");
-    printArray(arr, size);
+    // Input the size of the array
+    printf("Enter the number of elements in the array: ");
+    scanf("%d", &n);
 
-    reverseArray(arr, size);
+    int arr[n];
 
+    // Input the elements of the array
+    inputArray(arr, n);
+
+    // Reverse the array
+    reverseArray(arr, n);
+
+    // Output the reversed array
     printf("Reversed array: ");
-    printArray(arr, size);
+    printArray(arr, n);
 
     return 0;
 }
